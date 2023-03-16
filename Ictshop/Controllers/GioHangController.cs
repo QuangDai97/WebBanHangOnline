@@ -183,6 +183,7 @@ namespace Ictshop.Controllers
             ddh.Ngaydat = DateTime.Now;
             ddh.Thanhtoan = ptthanhtoan;
             ddh.Diachinhanhang = diachinhanhang;
+            
             decimal tongtien = 0;
             foreach (var item in gh)
             {
@@ -202,7 +203,7 @@ namespace Ictshop.Controllers
                 ctDH.Soluong = item.iSoLuong;
                 ctDH.Dongia = (decimal)item.dDonGia;
                 ctDH.Thanhtien = (decimal) thanhtien;
-                ctDH.Phuongthucthanhtoan = 1;
+                //ctDH.Thanhtoan = 1;
                 db.Chitietdonhangs.Add(ctDH);
             }
             db.SaveChanges();

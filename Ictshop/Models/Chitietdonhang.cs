@@ -21,9 +21,9 @@
         [Display(Name = "Số lượng")]
 
         public int? Soluong { get; set; }
-        [Display(Name = "Phương thức thanh toán")]
-
-        public int? Phuongthucthanhtoan { get; set; }
+        //[Display(Name = "Phương thức thanh toán")]
+        
+        //public int? Thanhtoan { get; set; }
         [Display(Name = "Đơn giá")]
 
         public decimal? Dongia { get; set; }

@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
     <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
-    <script src="~/Scripts/jquery-3.4.1.js"></script>
+    @*<script src="~/Scripts/jquery-3.4.1.js"></script>*@
     <script src="~/Scripts/jquery-3.4.1.min.js"></script>
     @using Ictshop.Models
 
@@ -93,19 +93,18 @@
                 @*@Html.Action("GioHangPartial", "GioHang",new { @style = "color:while" })*@
                 @{ if (u != null)
                     {
-                                <div class="col-sm-4 col-md-0">
-                                    <a style="color:white" href="@Url.Action("Profile", "User", new { id = u.MaNguoiDung  })"> Xin chào : @u.Email</a>
-                                    &nbsp;
-                                    @*@Html.ActionLink("ĐĂNG XUẤT", "DangXuat", "User", new { style = "color:red" })*@
-                                    <a style="color:red" href="/User/DangXuat"> ĐĂNG XUẤT</a>
-                                </div> }
-    else
-    {
-<div class="col-sm-4 col-md-0">
-    <a style="color:white" href="/User/Dangky"> Đăng ký</a>
-    &nbsp;
-    <a style="color:white" href="/User/Dangnhap"> Đăng nhập</a>
-</div> } }
+                        <div class="col-sm-4 col-md-0">
+                            <a style="color:white" href="@Url.Action("Profile", "User", new { id = u.MaNguoiDung  })"> Xin chào : @u.Email</a>
+                           
+                            @*@Html.ActionLink("ĐĂNG XUẤT", "DangXuat", "User", new { style = "color:red" })*@
+                            <a style="color:red" href="~/User/DangXuat"> ĐĂNG XUẤT</a>
+                        </div> }
+                    else
+                    {
+                        <div class="col-sm-4 col-md-0">
+                            <a style="color:white" href="~/User/Dangky"> Đăng ký</a>
+                            <a style="color:white" href="~/User/Dangnhap"> Đăng nhập</a>
+                        </div> } }
 
 
             </div>
@@ -157,7 +156,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="/Home/Contact" title="LIENHE">
+                        <a href="~/Home/Contact" title="LIENHE">
                             @*<span><i class="fas fa-headphones"></i></span>*@
                             <span>LIÊN HỆ</span>
 

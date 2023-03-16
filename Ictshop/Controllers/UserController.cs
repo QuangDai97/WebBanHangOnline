@@ -23,30 +23,26 @@ namespace Ictshop.Controllers
         {
             try
             {
-                Session["userReg"] = nguoidung;
-
-                // Thêm người dùng  mới
-                db.Nguoidungs.Add(nguoidung);
-                // Lưu lại vào cơ sở dữ liệu
-                db.SaveChanges();
-                // Nếu dữ liệu đúng thì trả về trang đăng nhập
-                if (ModelState.IsValid)
+                var ndTonTai = db.Nguoidungs.FirstOrDefault(n => n.Email == nguoidung.Email);
+                if (ndTonTai != null)
                 {
-                    //return RedirectToAction("Dangnhap");
-                    ViewBag.RegOk = "Đăng kí thành công. Đăng nhập ngay";
-                    ViewBag.isReg = true;
+                    ModelState.AddModelError("", "Email đã tồn tại!");
                     return View("Dangky");
-
                 }
                 else
                 {
-                    return View("Dangky");
+                    db.Nguoidungs.Add(nguoidung);
+                    db.SaveChanges();
+                    return RedirectToAction("Dangnhap");
                 }
 
+
+
             }
-            catch
+            catch (Exception ex)
             {
-                return View();
+                Console.WriteLine(ex.Message);
+                return View("Error");
             }
         }
 

@@ -17,6 +17,8 @@
 
         [Key]
         public int MaNguoiDung { get; set; }
+
+        [NotMapped]
         [Display(Name = "Ảnh đại diện")]
         public string Anhdaidien { get; set; }
 
